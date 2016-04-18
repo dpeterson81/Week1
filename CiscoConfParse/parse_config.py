@@ -15,4 +15,9 @@ group2_policy = config.find_objects_w_child(parentspec=r"^crypto map CRYPTO", \
 print "\nCrypto Policies with DH Group 2 Configured"
 pp(group2_policy)
 
+#Print out all maps that do not have AES Encryption
+no_aes_policy = config.find_objects_wo_child(parentspec=r"^crypto map CRYPTO", \
+  childspec=r"set transform-set AES")
+print "\nCrypto Policies without AES Encryption"
+pp(no_aes_policy)
 
